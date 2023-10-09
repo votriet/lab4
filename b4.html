@@ -1,0 +1,35 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính toán số lần xuất hiện</title>
+    <style>
+        #result {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<h1>Tính toán số lần xuất hiện</h1>
+<label for="textarea">Nhập đoạn văn (A):</label><br>
+<textarea id="textarea" rows="4" cols="50"></textarea><br><br>
+
+<label for="textfield">Nhập chuỗi (B):</label>
+<input type="text" id="textfield"><br><br>
+
+<button onclick="countOccurrences()">Tính toán</button><br><br>
+
+<div id="result"></div>
+
+<script>
+    function countOccurrences() {
+        const textA = document.getElementById('textarea').value;
+        const textB = document.getElementById('textfield').value;
+
+        const regex = new RegExp(textB, 'gi');
+        const count = (textA.match(regex) || []).length;
+
+        document.getElementById('result').innerHTML = `Số lần xuất hiện của chuỗi B trong đoạn văn A là: ${count}`;
+    }
+</script>
+</body>
+</html>

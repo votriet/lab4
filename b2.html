@@ -1,0 +1,47 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Giải phương trình bậc II</title>
+    <style>
+        #result {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<h1>Giải phương trình bậc II</h1>
+<label for="a">Nhập giá trị a:</label>
+<input type="number" id="a" name="a"><br><br>
+
+<label for="b">Nhập giá trị b:</label>
+<input type="number" id="b" name="b"><br><br>
+
+<label for="c">Nhập giá trị c:</label>
+<input type="number" id="c" name="c"><br><br>
+
+<button onclick="solveEquation()">Giải phương trình</button><br><br>
+
+<div id="result"></div>
+
+<script>
+    function solveEquation() {
+        const a = parseFloat(document.getElementById('a').value);
+        const b = parseFloat(document.getElementById('b').value);
+        const c = parseFloat(document.getElementById('c').value);
+
+        const delta = b * b - 4 * a * c;
+
+        if (delta > 0) {
+            const x1 = (-b + Math.sqrt(delta)) / (2 * a);
+            const x2 = (-b - Math.sqrt(delta)) / (2 * a);
+            document.getElementById('result').innerHTML = `Phương trình có hai nghiệm: x1 = ${x1}, x2 = ${x2}`;
+        } else if (delta === 0) {
+            const x = -b / (2 * a);
+            document.getElementById('result').innerHTML = `Phương trình có nghiệm kép: x = ${x}`;
+        } else {
+            document.getElementById('result').innerHTML = "Phương trình vô nghiệm";
+        }
+    }
+</script>
+</body>
+</html>

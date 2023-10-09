@@ -1,0 +1,46 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Game Button</title>
+  <style>
+    .button {
+      width: 50px;
+      height: 50px;
+      margin: 5px;
+      text-align: center;
+      line-height: 50px;
+      font-size: 16px;
+      background-color: #eee;
+      border: 1px solid #ccc;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+<h1>Game Button</h1>
+<div id="button-container"></div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  $(document).ready(function() {
+    const totalButtons = 64;
+    let currentButton = 1;
+
+    for (let i = 1; i <= totalButtons; i++) {
+      $('#button-container').append(`<button class="button" data-number="${i}">${i}</button>`);
+    }
+
+    $('.button').click(function() {
+      const buttonNumber = parseInt($(this).data('number'));
+
+      if (buttonNumber === currentButton) {
+        $(this).remove();
+        currentButton++;
+      } else {
+        alert('Bạn đã nhấn sai!');
+      }
+    });
+  });
+</script>
+</body>
+</html>

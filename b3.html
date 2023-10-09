@@ -1,0 +1,38 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lời chào ngẫu nhiên</title>
+    <style>
+        #greeting {
+            font-size: 24px;
+            font-weight: bold;
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+<!--<h1>Lời chào ngẫu nhiên</h1>-->
+<div id="greeting"></div>
+
+<script>
+    const greetings = [
+        "Chào bạn!",
+        "Xin chao!",
+        "Hi!",
+        "Hello!",
+        "Salut!",
+        "Hola!"
+    ];
+
+    function getRandomGreeting() {
+        const randomIndex = Math.floor(Math.random() * greetings.length);
+        return greetings[randomIndex];
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+        const greetingElement = document.getElementById("greeting");
+        greetingElement.textContent = getRandomGreeting();
+    });
+</script>
+</body>
+</html>

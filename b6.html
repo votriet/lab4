@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .form-group {
+            margin-bottom: 10px;
+        }
+        .error-message {
+            color: red;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+<h1>Form Đăng nhập</h1>
+<form id="login-form" action="#" method="POST">
+    <div class="form-group">
+        <label for="username">Tên đăng nhập:</label>
+        <input type="text" id="username" name="username">
+        <span class="error-message" id="username-error"></span>
+    </div>
+    <div class="form-group">
+        <label for="password">Mật khẩu:</label>
+        <input type="password" id="password" name="password">
+        <span class="error-message" id="password-error"></span>
+    </div>
+    <button type="submit">Đăng nhập</button>
+</form>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#login-form').submit(function(event) {
+            event.preventDefault();
+
+            // Xóa các thông báo lỗi và bôi đỏ
+            $('.error-message').text('');
+            $('input').removeClass('error');
+
+            // Lấy giá trị từ các trường nhập liệu
+            const username = $('#username').val().trim();
+            const password = $('#password').val().trim();
+
+            // Kiểm tra dữ liệu nhập liệu
+            let isValid = true;
+
+            if (username === '') {
+                $('#username-error').text('Tên đăng nhập không được bỏ trống');
+                $('#username').addClass('error');
+                isValid = false;
+            }
+
+            if (password === '') {
+                $('#password-error').text('Mật khẩu không được bỏ trống');
+                $('#password').addClass('error');
+                isValid = false;
+            }
+
+            // Nếu dữ liệu hợp lệ, tiến hành đăng nhập
+            if (isValid) {
+                // Thực hiện các xử lý đăng nhập tại đây
+                console.log('Đăng nhập thành công');
+            }
+        });
+    });
+</script>
+</body>
+</html>

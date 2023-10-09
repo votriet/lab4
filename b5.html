@@ -1,0 +1,28 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Xoay tam hinh</title>
+  <style>
+    #image-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+  </style>
+</head>
+<body>
+<div id="image-container">
+  <img src="./man-hinh-dep-001.jpg" alt="man-hinh">
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  $(document).ready(function() {
+    setTimeout(function() {
+      $('#image-container img').css('transform', 'rotate(15deg)');
+    }, 2000);
+  });
+</script>
+</body>
+</html>
